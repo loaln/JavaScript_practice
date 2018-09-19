@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScriptDOM对象简介</title>
+	</head>
+
+	<body>
+		<h3>一、DOM操作HTML</h3>
+		<h4>1、改变HTML输出流</h4> 注意：绝对不要在文档加载完成之后使用document.write()，这会覆盖改文档
+		<br /><br />
+		<button onclick="demo()">文档被覆盖例子</button>
+		<script>
+			function demo() {
+				document.write("此处因为是在文档加载完再调用，导致原先内容被覆盖。");
+			}
+		</script>
+		<h4>2、寻找元素</h4> 可通过id或标签名寻到到元素，即：getElementById和getElementTagName(如果有两个相同的标签名，它会寻找到相同的第一个)
+		<h4>3、改变HTML内容</h4> 可通过innerHTML进行改变
+		<h4>4、改变HTML属性</h4>
+		<p>使用属性：attribute，举例子：</p>
+		<a id="herfs" href="https://www.baidu.com">点击链接到百度</a>
+		<button onclick="demo1()">点击改变前面的链接地址，链接到JS基础学习</button>
+		<script>
+			function demo1() {
+				document.getElementById("herfs").href = "20180907.html";
+			}
+		</script>
+
+		<h3>二、DOM操作CSS</h3>
+		<h4>通过DOM对象改变CSS</h4>
+		<p>语法：document.getElementById(id).style.property=new style</p>
+
+		<h3>三、DOM EventListener</h3>
+		<p>addEventListen可以多次叠加事件，并不会覆盖</p>
+		<p>注：如果在script中调用onclik，后面写的事件会将前面的事件覆盖</p>
+		<button id="btn1">点击查看例子</button>
+		<script>
+			var x = document.getElementById("btn1");
+			x.addEventListener("click", demo2);
+			x.addEventListener("click", demo3);
+			//x.removeEventListener("click",demo2);
+			function demo2() {
+				alert("hello");
+			}
+
+			function demo3() {
+				alert("world");
+			}
+		</script>
+
+		<h3>四、事件的补充</h3>
+		<p>IE事件处理程序，处理兼容性的问题</p>
+		attachEvent<br />detachEvent<br />与上面的EventListeners只是名称不一样，操作类似，比如click处需改为onclick
+
+		<h3>五、事件对象</h3>
+		<p>
+			1、type获取事件类型<br /> 2、target获取事件目标
+			<br /> 3、stopPropagation()：阻止事件冒泡
+			<br /> 4、preventDefault()：阻止事件默认行为
+		</p>
+		<div id="div">
+			<button id="btn2">type/target/stopPropagation/</button><br />
+			<a id="aid" href="http://www.baidu.com">百度(被阻止了A标签的href的默认行为)</a>
+		</div>
+		<script>
+			document.getElementById("btn2").addEventListener("click", showType);
+			document.getElementById("div").addEventListener("click", showDiv);
+			document.getElementById("aid").addEventListener("click", showA);
+
+			function showType(event) {
+				//alert(event.type);
+				alert(event.target);
+				event.stopPropagation(); //阻止事件冒泡
+			}
+
+			function showDiv() {
+				alert("div"); //如若上面没有调用stopPropagation(),那么该函数会被调用
+			}
+
+			function showA(event) {
+				event.stopPropagation();
+				event.preventDefault(); //阻止事件的默认行为
+			}
+		</script>
+
+		<h3>六、JavaScript内置对象</h3>
+		<h4>1、创建对象</h4>
+		<script>
+			//创建对象的第一种
+			people1 = new Object();
+			people1.name = "老林";
+			people1.age = "20";
+			document.write("name:" + people1.name + "<br />age:" + people1.age);
+			//创建对象的第二种
+			people2 = {
+				name: "顺口溜",
+				age: "18"
+			};
+			document.write("<br /><br />name:" + people2.name + "<br />age:" + people2.age);
+			//使用创建一个函数创建一个对象
+			function people3(name, age) {
+				this._name = name;
+				this._age = age;
+			}
+			son = new people3("小林", 23);
+			console.log(son._name);
+			document.write("<br /><br />name:" + son._name + "<br />age:" + son._age);
+		</script>
+		<h4>2、String字符串對象</h4>
+		
+		
+		
+	</body>
+
+</html>

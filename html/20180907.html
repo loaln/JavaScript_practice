@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<title>js的基础积累</title>
+		<title>js的基础知识点</title>
 	</head>
 	<script src="../js/20180907.js"></script>
-	<body>
+
+	<body onload="mgs()">
 		1、iframe的使用，还有target的不同属性会产生什么效果。<br />
 		<script>
 			document.write('hello!<br />');
 		</script>
 		<p id="pid">good</p>
-		
+
 		<h3>一、变量与数据类型</h2>
 		js数据类型有字符串(String),数字(Number),布尔(Boolean),
 		数组(Array),对象(Object),空(Null)等。<br />
@@ -32,18 +34,18 @@
 		<p id="sumid"></p>
 		<button onclick="mysum()">结果</button>
 		<script>
-			function mysum(){
-				var i=10;
-				var j=100;
-				var m=i+j;
-				i*=j;//i=i*j
-				document.getElementById("sumid").innerHTML=m;
-				document.getElementById("sumid").innerHTML=i+'<br />'+m;
+			function mysum() {
+				var i = 10;
+				var j = 100;
+				var m = i + j;
+				i *= j; //i=i*j
+				document.getElementById("sumid").innerHTML = m;
+				document.getElementById("sumid").innerHTML = i + '<br />' + m;
 				//字符串的操作，不用像C++一般进行运算符的加载
-				var a="2";
-				var b="2";
-				var c=a+b;
-				document.getElementById("sumid").innerHTML=c;
+				var a = "2";
+				var b = "2";
+				var c = a + b;
+				document.getElementById("sumid").innerHTML = c;
 			}
 		</script>
 		<p>2、比较运算符</p>
@@ -51,11 +53,11 @@
 		<p>===还必须满足类型也相同</p>
 		<p>下面由js构成</p>
 		<script>
-			var i="10";
-			var j=10;
-			document.write(i==j);
+			var a = "10";
+			var b = 10;
+			document.write(a == b);
 			document.write('<br />');
-			document.write(i===j);
+			document.write(a === b);
 		</script>
 		<p>3、逻辑运算符</p>
 		<p>&&、||、！（取反）</p>
@@ -63,68 +65,158 @@
 		<p>形式如：i>10?(true显示结果):(false显示结果)</p>
 		<p>下面由js构成</p>
 		<script>
-			var i=10;
-			document.write(i>10?"i大于10":"i小于10");
+			var c = 10;
+			document.write(c > 10 ? "i大于10" : "i小于10");
 		</script>
-		
+
 		<h3>三、条件语句else if</h3>
 		<h3>四、switch语句</h3>
 		<p>下面由js构成</p>
 		<script>
-			var i=5;
-			switch(i){
+			var choose = 5;
+			switch(choose) {
 				case 1:
-					document.write("i=1");
-					break;//跳出当前选择
+					document.write("choose=1");
+					break; //跳出当前选择
 				case 2:
-					document.write("i=2");
+					document.write("choose=2");
 					break;
 				default:
 					document.write("条件不满足case");
 					break;
 			}
 		</script>
-		
+
 		<h3>五、循环语句</h3>
 		<p>for循环、while循环、do while循环</p>
 		<p>for的另外一个用法</p>
 		<p>for(j in i){} 解释：如果j是i里面的数值，则执行{}内语句。可以假设i是个数组去理解。</p>
-	
+
 		<h3>六、跳转语句</h3>
 		<p>break、continue</p>
-		
+
 		<h3>七、函数</h3>
 		<p>下面由js构成</p>
 		<p>1、定义函数</p>
 		<p>function 函数名(参数){函数体}</p>
+		<p>
+			使用Function类来创建一个新的函数:<br /> var functionName = new Function([arg1,arg2,...,argn],functionBody);
+			<ul>
+				<li>参数functionName是创建函数的名称</li>
+				<li>参数arg1~argN是可选项，也就是参数列表，即为有无参数的函数</li>
+				<li>参数functionBody包含调用该函数时被执行的JS代码块的字符串</li>
+			</ul>
+		</p>
 		<script>
-			function demo(a,b){
-				var sum=a+b;
+			function demo(a, b) {
+				var sum = a + b;
 				return sum;
 			}
-			var v1=demo(10,20);
+			var v1 = demo(10, 20);
 			document.write(v1);
 		</script>
 		<h4>1、函数的调用</h4>
 		<p>a、在script标签内调用<br/>b、在HTML文件中调用</p>
 		<script>
-			function demo1(){
-				var i=12;
-				var j=123;
-				var sum=i*j;
+			function demo1() {
+				var i = 12;
+				var j = 123;
+				var sum = i * j;
 				document.write(sum);
 			}
-			function demo2(){
-				var i=12;
-				var j=123;
-				var sum=i/j;
+
+			function demo2() {
+				var i = 12;
+				var j = 123;
+				var sum = i / j;
 				alert(sum);
 			}
-			demo1();//在script中调用
+			demo1(); //在script中调用
 		</script>
 		<form>
 			<input type="button" value="按钮1" onclick="demo2()" />
 		</form>
 		<button onclick="demo2()">按钮2</button>
+		<h4>2、带参数的函数</h4> 形如：function 函数名(a,b,...){}注：此处的参数传递无需像C和C++那般需要声明数据类型
+
+		<h4>3、带返回值的函数</h4> return
+
+		<h4>4、局部变量和全局变量</h4>
+		<p>值得注意：在函数代码块中声明的变量，如若没有用var去声明，则该变量为全局变量，而且要该函数被调用过一次后，改全局变量才会生效</p>
+		<script>
+			var n = 10;
+			m = 100; //全局变量，任何地方都可以使用
+			function demo3() {
+				var / i = 3320; //局部变量，只在当前函数内可以使用
+				x = 43546; //全局变量，这里注意一下，一定要等demo3函数调用过后，x才会变成全局变量
+			}
+			document.write(n + '<br />');
+			document.write(m + '<br />');
+			demo3();
+			document.write(x);
+		</script>
+
+		<h4>5、异常捕获、事件</h4> a、异常捕获：
+		<br /> try{发生异常的代码块;}catch(err){错误信息处理;}
+		<br />
+		<script>
+			//var str="哟哟哟，切克闹";
+			function demo4() {
+				try {
+					document.write(str); //必须执行一次
+				} catch(err) {
+					document.write(err); //当try中发生异常时才会执行catch中的语句
+				}
+			}
+			demo4();
+		</script>
+		<br /><br />b、Throw语句：<br /> 通过throw语句创建一个自定义错误
+		<br />
+		<form>
+			<input id="txt" type="text" />
+			<input id="btn" type="button" onclick="demo5()" value="按钮" />
+		</form>
+		<script>
+			function demo5() {
+				try {
+					var qq = document.getElementById("txt").value;
+					if(qq == "") {
+						throw "输入值为空";
+					}
+				} catch(err) {
+					alert(err);
+				}
+			}
+		</script>
+
+		<h3>八、js事件</h3> 如：鼠标点击、双击，鼠标滑过、滑出等等
+		<div style="height: 25px;width: 100px;background-color: sandybrown;" onmouseover="onOver(this)" onmouseout="onOut(this)"></div>
+		<script>
+			function onOver(ooj) {
+				ooj.innerHTML = "鼠标滑过事件";
+			}
+
+			function onOut(ooj) {
+				ooj.innerHTML = "鼠标移出事件";
+			}
+		</script>
+		<form>
+			<br />文本内容改变事件：
+			<input type="text" onchange="alert('hello,内同改变了')" />
+			<br />文本框选中事件：
+			<input type="text" onselect="selectDemo(this)" />
+		</form>
+		<script>
+			function selectDemo(ooj) {
+				ooj.style.background = "grey";
+			}
+
+			function mgs() {
+				alert("网页内容加载完毕，onload事件，在body那里调用。");
+			}
+		</script>
+
+		<br /><br /><br /><br />
 	</body>
+
 </html>
