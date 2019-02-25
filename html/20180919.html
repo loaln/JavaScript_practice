@@ -6,7 +6,7 @@
 		<title>JavaScriptDOM对象简介</title>
 	</head>
 
-	<body>
+	<body onload="starTime()">
 		<h3>一、DOM操作HTML</h3>
 		<h4>1、改变HTML输出流</h4> 注意：绝对不要在文档加载完成之后使用document.write()，这会覆盖改文档
 		<br /><br />
@@ -108,10 +108,113 @@
 			console.log(son._name);
 			document.write("<br /><br />name:" + son._name + "<br />age:" + son._age);
 		</script>
-		<h4>2、String字符串對象</h4>
-		
-		
-		
+		<h4>2、String字符串对象</h4>
+		<p>String对象常用的方法和属性：</p>
+		<p>
+			1、在字符串中查找字符串：indexOf()，寻找得到则返回该字符串所在的位置，寻找不到返回-1.<br /> 2、内容匹配：match()，存在返回查找的字符串，不存在返回null.
+			<br /> 3、替换内容：replace().
+			<br /> 4、字符串大小写转换：toUpperCase()/toLowerCase(). 5、字符串转为数组：strong>split().
+		</p>
+		<script>
+			var str = "hello world!";
+			var str1 = "hello,world,i,like";
+			document.write(str + "的字符串长度：" + str.length);
+			document.write("<br/>查找world是否存在：" + str.indexOf("world"));
+			document.write("<br/>查找worlds是否存在：" + str.indexOf("worlds"));
+			document.write("<br/>匹配world是否存在：" + str.match("world"));
+			document.write("<br/>匹配worlds是否存在：" + str.match("worlds"));
+			document.write("<br/>替换worlds字符串：" + str.replace("world", "shunkouliu"));
+			document.write("<br/>将hello world!转化为大写：" + str.toUpperCase());
+			var s = str1.split(",");
+			document.write("<br/>将“hello,world,i,like”字符串转化为数组，并取数组中的第2位：" + s[1]);
+		</script>
+		<h4>3、Date日期对象</h4>
+		<p>
+			1、getFullYear()：获取年份；<br /> 2、getTime()：获毫秒；
+			<br /> 3、setFullYear()：设置具体的日期；
+			<br /> 4、getDay()：获取星期；
+			<br /> 5、时钟实例。
+		</p>
+		<script>
+			var dat = new Date();
+			document.write(dat);
+			document.write("<br />获取年份：" + dat.getFullYear());
+			document.write("<br />获取毫秒：" + dat.getTime());
+			dat.setFullYear(1997, 7, 20);
+			document.write("<br />自己设置时间：" + dat);
+			document.write("<br />时钟：");
+
+			function checkTime(i) {
+				if(i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+
+			function starTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById("timetxt").innerHTML = h + ":" + m + ":" + s;
+				t = setTimeout(function() {
+					starTime();
+				}, 1000);
+			}
+		</script>
+		<div id="timetxt"></div>
+		<h4>4、Array数组对象</h4>
+		<p>
+			1、concat()：合并数组；<br /> 2、sort()：排序；
+			<br /> 3、push()：末尾追加元素；
+			<br /> 4、reverse()：数组元素翻转。
+		</p>
+		<p>
+			a:"hello","world"<br /> b:"shunkouliu","love"
+			<br /> c:"a","b","g","f","t","e"
+		</p>
+		<script>
+			var a = ["hello", "world"];
+			var b = ["shunkouliu", "love"];
+			var c = a.concat(b);
+			document.write("合并a、b数组：" + c);
+			var d = ["a", "b", "g", "f", "t", "e"];
+			document.write("<br />排序C数组：" + d.sort());
+			a.push("heyzhu");
+			document.write("<br />A数组末尾追加元素：" + a);
+			document.write("<br />翻转B数组：" + b.reverse());
+		</script>
+		<h4>5、Math对象</h4>
+		<p>
+			用法：Math.**去调用。
+			<br />1、round()：四舍五入；
+			<br /> 2、random()：返回0~1之间的随机数；
+			<br /> 3、max()：返回最高值，可在括号内填多个数值，在里面得出最大值；
+			<br /> 4、min()：返回中的最低值；
+			<br />5、abs()：返回绝对值。
+		</p>
+		<h4>6、Window对象</h4>
+		<button onclick="btnClicked()">点击切换到主页</button>
+		<script>
+			function btnClicked(){
+				window.open("../index.html","windowname","height=400,width=400,top=100");
+			}
+		</script>
+		<h4>7、计时器</h4>
+		<p>
+			通过使用JavaScript，我们有能力做到在一个设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行，我们称之为计时事件。<br />
+			计时方法：<br />
+			1、sentInterval()-间隔指定的毫秒数不停地执行指定的代码；clearInterval()-用于停止sentInterval()方法执行的函数代码。<br />
+			2、setTimeout()-暂停指定的毫秒数后执行指定的代码；（如：前面的模拟时间走动。）clearTimeout()-用于停止执行setTimeout()方法的函数代码。
+		</p>
+		<h4>8、History对象</h4>
+		<p>history.back()回退、history.forward()前进、history.go()跳转到历史的某一页 </p>
+		<h4>9、Location对象</h4>
+		<p>window.location对象用于获得当前页面的地址(URL)，并把浏览器重定向到心得页面。	</p>
+		<h4>10、Screen对象</h4>
+		<p>window.screen对象包含有关用户屏幕的信息。包括屏幕高度宽度和可用高度宽度。</p>
 	</body>
 
 </html>
