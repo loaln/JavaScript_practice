@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery Mobile</title>
+		<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery.mobile-1.4.5.min.js" ></script>
+	</head>
+	<body>
+		<a href="../index.html"><button id="bcindex">返回首页</button></a>
+		<p></p>
+
+		<h3>一、Widgets</h3>
+		<h4>1、page</h4>
+		<!--<div data-role="page">
+			<div data-role="header">
+				<h1></h1>
+			</div>
+			<div role="main">
+				
+			</div>
+			
+		</div>-->
+		<h4>2、button</h4>
+		<input type="button" value="按钮" data-theme="b" />
+		<h4>3、checkboxradio</h4>
+		
+		<h4>4、collapsible</h4>
+		
+		<h4>5、grid(格子)</h4>
+		<div class="ui-grid-b">
+			<div class="ui-block-a">
+				<div class="ui-bar ui-bar-a">hello A</div>
+				<div class="ui-bar ui-bar-a">hello A</div>
+				<div class="ui-bar ui-bar-a">hello A</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="ui-bar ui-bar-a">hello B</div>
+			</div>
+			<div class="ui-block-c">
+				<div class="ui-bar ui-bar-a">hello C</div>
+			</div>
+		</div>
+		<h4>6、listview(列表)</h4>
+		<ul data-role="listview">
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+		</ul><br />
+		<ol data-role="listview">
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+		</ol><br />
+		<ol data-role="listview">
+			<li><a href="#">A</a></li>
+			<li><a href="#">B</a></li>
+			<li><a href="#">C</a></li>
+		</ol><br />
+		<ul data-role="listview" data-filter="true" data-inset="true">
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+		</ul><br />
+		<form class="ui-filterable">
+			<input id="autoinput" data-type="search" placeholder="分别输入1、2、3尝试一下。"/>
+		</form>
+		<ul data-role= "listview" data-filter="true" data-filter-reveal="true" data-inset="true" data-input="#autoinput">
+			<li>A3</li>
+			<li>B2</li>
+			<li>C1</li>
+			<li>1</li>
+			<li>2</li>
+			<li>33</li>
+		</ul><br />
+		<ul data-role="listview" data-filter="true" data-inset="true" data-autodividers="true">
+			<li>A</li>
+			<li>afjsdhf</li>
+			<li>afd</li>
+			<li>B</li>
+			<li>bdia</li>
+			<li>Bfhuisa</li>
+			<li>C</li>
+			<li>chufda</li>
+		</ul>
+		<h4>7、navbar(头部导航)</h4>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active">one</a></li>
+				<li><a href="#">two</a></li>
+				<li><a href="#">three</a></li>
+			</ul>
+		</div><br />
+		<div data-role="header">
+			<h1>JQuery Mobile</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#">one</a></li>
+					<li><a href="#" class="ui-btn-active">two</a></li>
+					<li><a href="#">three</a></li>
+				</ul>
+			</div>
+		</div><br />
+		<div data-role="footer">
+			<h1>MY&nbsp;FOOT</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#">one</a></li>
+					<li><a href="#">two</a></li>
+					<li><a href="#" class="ui-btn-active">three</a></li>
+				</ul>
+			</div>
+		</div><br />
+		<div data-role="header" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-icon="grid">grid</a></li>
+					<li><a href="#" data-icon="home" class="ui-btn-active">home</a></li>
+					<li><a href="#" data-icon="gear">gear</a></li>
+				</ul>
+			</div>
+		</div>
+		<h4>8、popup(弹出窗口)</h4>
+		<a href="#pp" class="ui-btn" data-rel="popup">弹出窗口，弹出文字。</a>
+		<div data-role="popup" id="pp">
+			<p>这是一个弹出窗口。</p>
+		</div>
+		<center><p>点击下方图片。</p></center>
+		<a href="#pop" data-rel="popup" data-transition="fade" >
+			<center><img src="../image/20180706/8.jpg" style="width: 20%;" /></center>
+		</a>
+		<div data-role="popup" id="pop" data-position-to="window" >
+			<a href="#" data-rel="back"
+				class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">close</a>
+			<img src="../image/20180706/8.jpg" />
+		</div>
+		<h4>9、selectmenu</h4>
+		<div class="ui-file-contain">
+			<select name="select-native-1" id="select-native-1" data-iconpos="left">
+				<option value="1">这是第一个</option>
+				<option value="2">这是第二个</option>
+				<option value="3" disabled="disabled">这是第三个</option>
+				<option value="4">这是第四个</option>
+			</select>
+		</div>
+		
+		<h3>二、事件</h3>
+		<h4>1、pageinit(页面加载)</h4>
+		<h4>2、tap(点中)</h4>
+		<h4>3、taphold(长按)</h4>
+		<h4>4、swipe(滑动)、swipeleft、swiperight</h4>
+		<h4>5、scrollstart(滚动)、scrollstop</h4>
+		<h4>6、orientationchange(方向改变)</h4>
+		
+	</body>
+</html>

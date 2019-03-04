@@ -4,18 +4,142 @@
 		<meta charset="UTF-8">
 		<title>JQuery学习</title>
 		<script src="../js/jquery-2.1.1.min.js"></script>
+		<script src="../js/20190105-myJQuery.js"></script>
 		<script src="../js/20190105.js"></script>
 	</head>
 	<body>
+		<button id="bcindex"><a href="../index.html">返回首页</a></button>
 		<h3>一、JQuery选择器和事件</h3>
 		<h4>1、事件之绑定、解除绑定事件</h4>
 		<p>绑定事件：bind()、on()（推荐使用on）<br />解除绑定事件：unbind()、off()（推荐使用off）</p>
 		<h4>2、事件之事件目标与冒泡</h4>
-		<p>阻止事件冒泡：event.stopPropagation()和event.stopImmediatePropagation()</p>
+		<p>
+			<a href="https://baike.baidu.com/item/%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/4211429?fr=aladdin" target="_blank">
+				<b>事件冒泡</b>
+			</a>
+			：当事件发生后，这个事件就要开始传播(从里到外或者从外向里)。为什么要传播呢？因为事件源本身（可能）并没有处理事件的能力，即处理事件的函数（方法）并未绑定在该事件源上。例如我们点击一个按钮时，就会产生一个click事件，但这个按钮本身可能不能处理这个事件，事件必须从这个按钮传播出去，从而到达能够处理这个事件的代码中（例如我们给按钮的onclick属性赋一个函数的名字，就是让这个函数去处理该按钮的click事件），或者按钮的父级绑定有事件函数，当该点击事件发生在按钮上，按钮本身并无处理事件函数，则传播到父级去处理。
+		</p>
+		<p>阻止事件冒泡：<br />
+			阻止父级事件冒泡：event.stopPropagation()<br />
+			组织所有事件冒泡：event.stopImmediatePropagation()</p>
 		<h4>3、事件之自定义事件</h4>
 		
-		<h3>JQuery HTML</h3>
+		<h3>二、JQuery HTML</h3>
 		<p>参考JQuery官网API文档。</p>
+		<h4>1、捕获</h4>
+		<p>利用id去捕获元素，例如：$("#id名称").想要捕获的属性</p>
+		<h4>2、设置</h4>
+		<p>利用id去捕获元素，再去修改它的内容或属性值，例如：$("#id名称").想要捕获的属性(改变值)</p>
+		<h4>3、添加元素</h4>
+		<p>
+			append：在元素之后添加内容；<br />
+			prepend：在元素之前添加内容；<br />
+			before：在元素之前添加内容，不过一开始会先进行换行；<br />
+			after：在元素之后添加内容，不过一开始会先进行换行。<br />
+		</p>
+		<p id="demo1">例子：区分四者，可点击下方四个按钮。</p>
+		<button id="bt1">append</button>
+		<button id="bt2">prepend</button>
+		<button id="bt3">before</button>
+		<button id="bt4">after</button>
+		<h4>4、删除元素</h4>
+		<p>
+			remove：删除全部内容；<br />
+			empty：删除子元素。
+		</p>
+		
+		<h3>三、JQuery效果</h3>
+		<h4>1、隐藏与显示</h4>
+		<p>hide(参数为隐藏速度)、show(参数为显示速度)、Toggle()：单击切换隐藏和显示</p>
+		<h4>2、淡出淡入</h4>
+		<p>fadeIn() / fadeOut() / fadeToggle() / fadeTo()：指定淡化到透明度（可自己设置）</p>
+		<h4>3、滑动</h4>
+		<p>slideDown() / slideUp() / slideToggle()</p>
+		<h4>4、回调</h4>
+		<p>
+			$("p").hide(1000,function(){
+				alert("The paragraph is now hidden");
+			});<br />
+			<button id="bt5">点击，动画执行后回调function函数</button>
+			<div id="demo2" style="background: yellow;width: 100px;height: 100px;">展示例子</div>
+		</p>
+		
+		<h3>四、JQuery AJAX</h3>
+		<h4>1、异步访问</h4>
+		<p>load() 方法从服务器加载数据，并把返回的数据放入被选元素中。</p>
+		<h4>2、加载片段</h4>
+		<div id="demo3" style="height: 120px;width: 120px;background-color: gray;"></div>
+		<p></p>
+		<button id="bt6">加载其他页面的div</button>
+
+		<h3>五、JQuery 扩展</h3>
+		<h4>1、JQuery扩展</h4>
+		<p>
+			第一种：$.myjq=function(){alert("Hello myJQuery.JQuery扩展。");} 调用方式：$.myjq();<br />
+			第二种：$.fn.myjq=function(){$(this).text4("HELLO");} 调用方式：$("#demo4").myjq();
+		</p>
+		<button id="bt7">第一种扩展方式，不常见</button>
+		<button id="bt8">第二种扩展方式，常见</button>
+		<p></p>
+		<div id="demo4" style="width: 100px;height: 30px;background-color: gold;"></div>
+		<h4>2、noConflict(没有冲突)</h4>
+		<p>这里解决的是：如果当我们使用一些框架也使用美元符号$作为它的简写，那么就会与JQuery发生冲突。</p>
+		<p>如何解决，例子：</p>
+		<img src="../image/20190105/20190228163720.png" /><p></p>
+		<img src="../image/20190105/20190228163806.png" />
+		
+		<h3>六、JQuery CSS</h3>
+		<h4>1、JQuery CSS方法</h4>
+		<p></p>
+		<h4>2、JQuery盒子模型</h4>
+		<p>
+			可查看JQuery文档，看它真实的高度。<br />
+			width()：仅是元素本身的宽度，不包括内边距、边框和外边距。<br />
+			height()：同上推论。<br />
+			innerWidth()：元素本身宽度+内边距。<br />
+			innerHeight()：同上推论。<br />
+			outerWidth()：没有传递参数时，宽度为元素宽度+内边距+边框。如果里面传递参数true，则是整个盒子的宽度，即再加上外边距。<br />
+			outerHeight()：同上推论。
+		</p>
+		
+		<h3>七、JQuery 遍历</h3>
+		<h4>1、向下遍历</h4>
+		<p>
+			children()：可选参数。该方法只会向下一级对 DOM树进行遍历。<br />
+			find()：必选参数。返回被选元素的后代元素，一路向下直到最后一个后代。参数为什么，则返回与参数相同的所有后代。如果要返回被选元素的所有后代，则参数为("*")。
+		</p>
+		<h4>2、向上遍历</h4>
+		<p>
+			parent()：可选参数。该方法只会向上一级对 DOM 树进行遍历。<br />
+			parents()：可选参数。返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (html)。<br />
+			parentsUntil()：必选参数。返回介于两个给定元素之间的所有祖先元素。
+		</p>
+		<h4>3、同级遍历</h4>
+		<p>
+			siblings()：返回被选元素的所有同胞元素。除本身元素。<br />
+			next()：返回被选元素的下一个同胞元素。<br />
+			nextAll()：返回被选元素的所有跟随的同胞元素(下面所有同级元素)。<br />
+			nextUntil()：返回介于两个给定参数之间的所有跟随的同胞元素(下面所有同级元素)。<br />
+			prev()：同next()同理可推。向上的。<br />
+			prevAll()：同nextAll()同理可推。向上的。<br />
+			prevUntil()：同prevUntil()同理可推。向上的。
+		</p>
+		<h4>4、过滤</h4>
+		<p> 
+			三个最基本的过滤方法是：first(), last() 和 eq()，它们允许您基于其在一组元素中的位置来选择一个特定的元素。<br />
+			其他过滤方法，比如 filter() 和 not() 允许您选取匹配或不匹配某项指定标准的元素。
+		</p>
+		<p>
+			first()：返回被选元素的首个元素。例子：$("div p").first();即选取首个 div元素内部的第一个p元素。<br />
+			last()：返回被选元素的最后一个元素。<br />
+			eq()：返回被选元素中带有指定索引号的元素。索引号从 0 开始，因此首个元素的索引号是 0 而不是 1。下面的例子选取第二个p元素（索引号 1）：<br />
+			filter()：允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。例子：$("p").not(".intro");例子是返回不带有类名 "intro" 的所有p元素：<br />
+			not()：返回不匹配标准的所有元素。与filter()刚好相反。
+		</p>
+		
+		<h3>八、JQuery 扩展</h3>
+		<h3>九、JQuery 扩展</h3>
+		
 		
 		
 	</body>

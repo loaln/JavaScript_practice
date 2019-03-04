@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery UI</title>
+		<link rel="stylesheet" href="../css/jquery-ui.min.css" />
+		<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+		<script src="../js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../js/20190301.js"></script>
+		<style>
+			#menu{width: 80px;}
+		</style>
+	</head>
+
+	<body>
+		<button id="bcindex"><a href="../index.html">返回首页</a></button>
+		<p></p>
+		<a href="../index.html" id="btindex">返回首页</a>
+		
+		<h3>Interaction(交互)</h3>
+		<h4>1、Draggable(拖动)</h4>
+		<div id="div1" style="width: 100px;height: 100px;border: 2px solid rosybrown;">框框可拖拽~</div>
+		<h4>2、Droppable(放置)</h4>
+		<div id="div2" style="width: 100px;height: 100px;border: 2px solid darkblue;">框框可拖拽~</div>
+		<div id="div3" style="width: 200px;height: 200px;border: 2px solid fuchsia;">框框可放置~</div>
+		<h4>3、Resizable(尺寸)</h4>
+		<div id="div4" style="width: 200px;height: 80px;background-color: sandybrown;">可拖动边缘改变框框大小</div>
+		<h4>4、Selectable</h4>
+		<p>注意：点击下方选项，可控制台看效果。</p>
+		<strong>提问：世界上最美丽的人是谁？！</strong>
+		<ol id="select">
+			<li id="right">LOALN</li>
+			<li>LAOLIN</li>
+			<li>NIBODY</li>
+		</ol>
+		<a id="ask" href="#">提问</a>
+		<h4>5、Sortable(分类)</h4>
+		<p>注：可拖动无序列表中的选项为其排序。</p>
+		<ul id="sort">
+			<li>苹果</li>
+			<li>香蕉</li>
+			<li>草莓</li>
+			<li>西瓜</li>
+		</ul>
+
+		<h3>Widgets(控件)</h3>
+		<h4>1、Accoridion(折叠)</h4>
+		<p>注：更详尽的操作查看API文档。</p>
+		<div id="div5">
+			<em>选项1</em>
+			<div>
+				<p>
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+				</p>
+			</div>
+			<em>选项2</em>
+			<div>
+				<p>
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+				</p>
+			</div>
+			<em>选项3</em>
+			<div>
+				<p>
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+					HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+				</p>
+			</div>
+		</div>
+		<h4>2、AutoComplete(自动补充)</h4>
+		<p>注：在输入框中输入l会有自动提示。</p>
+		<label>Tags:</label>
+		<input id="tags" />
+		<h4>3、Datepicker(日期)</h4>
+		<label>Date:</label>
+		<input id="date"/>
+		<h4>4、Dialog</h4>
+		<button id="bt9">点击弹出对话框</button>
+		<div id="div6" title="Dialog Title">
+			<p>这是一个对话框Dialog。</p>
+		</div>
+		<h4>5、progressbar(进度条)</h4>
+		<div id="progressbar1"></div>
+		<p></p>
+		<div id="progressbar2"></div>
+		<h4>6、menu</h4>
+		<p>注：可通过修改JQuery中的类改变成水平菜单。</p>
+		<ul id="menu">
+			<li>
+				<div>Java</div>
+				<ul>
+					<li>Java EE</li>
+					<li>Java SE</li>
+					<li>Java ME</li>
+				</ul>
+			</li>
+			<li>C</li>
+			<li>C++</li>
+			<li>C#</li>
+		</ul>
+		<h4>7、silder</h4>
+		<p id="num">0</p>
+		<div id="slider"></div>
+		<h4>8、spinner</h4>
+		<input id="input" value="1"/>
+		<h4>9、tabs</h4>
+		<div id="tabs">
+			<ul>
+				<li><a href="#hello1">hello1</a></li>
+				<li><a href="#hello2">hello2</a></li>
+				<li><a href="#hello3">hello3</a></li>
+			</ul>
+			<div id="hello1">
+				hello1\hello1\hello1\hello1\hello1\hello1\hello1\hello1\
+			</div>
+			<div id="hello2">
+				hello2\hello2\hello2\hello2\hello2\hello2\hello2\hello2\
+			</div>
+			<div id="hello3">
+				hello3\hello3\hello3\hello3\hello3\hello3\hello3\hello3\
+			</div>
+		</div>
+	</body>
+
+</html>
