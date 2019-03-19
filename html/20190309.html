@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>h5基础知识补充</title>
+		<script type="text/javascript" src="../js/20190309.js" ></script>
+	</head>
+	<body>
+		<a href="../index.html"><button id="bcindex">返回首页</button></a>
+		
+		<!--SVG-->
+		<h3>一、SVG</h3>
+		<h4>1、直接绘制</h4>
+		<svg width="120" height="120" viewBox="0 0 120 120" version="1.1">
+			<circle cx="60" cy="60" r="50"></circle>
+		</svg>
+		<h4>2、外部导入</h4>
+		<iframe src="../svg/2019030901.svg" width="400" height="120"></iframe>
+		<br />
+		<iframe src="../svg/2019030902.svg" width="1000" height="100"></iframe>
+		
+		<!--Web存储-客户端存储数据新方法-->
+		<h3>二、Web存储-客户端存储数据新方法</h3>
+		<h4>1、localStroage</h4>
+		<p>存储特点：localStroage方法存储的数据没有时间限制。浏览器关闭后依旧存在。</p>
+		<textarea id="ta" style="width: 200px;height: 50px;"></textarea>
+		<button id="b1">save</button>
+		<h4>2、sessionStroage</h4>
+		<p>sessionStroage方法针对一个session进行数据存储。当用户关闭浏览器窗口后，数据会被删除。</p>
+		<span id="n">0</span>
+		<button id="add">Add</button>
+		
+		<!--应用缓存-->
+		<h3>三、应用缓存</h3>
+		<em>1、什么是应用程序缓存：</em>
+		<p>HTML5引入了应用程序缓存，这意味着web应用可进行缓存。并可在没有因特网连接时进行访问。</p>
+		<em>2、应用缓存的优势：</em>
+		<ul>
+			<li>离线浏览-用户可在应用离线时使用它们；</li>
+			<li>速度-已缓存资源加载得更快；</li>
+			<li>减少服务器负载-浏览器将只从服务器下载更新过或更改过的资源。</li>
+		</ul>
+		<em>3、实现缓存</em>
+		<p>如需启用应用程序缓存，请在文档的html标签中包含manifest属性<br />manifest文件的建议的文件扩展名是：“.appcache”</p>
+		<em>4、Manifest文件：</em>
+		<ul>
+			<li>CACHE MANIFEST-在此标题下列出的文件将在首次下载后进行缓存；</li>
+			<li>NETWORK-在此标题下列出的文件需要与服务器的连接，且不会被缓存；</li>
+			<li>FALLBACK-在此标题下列出的文件规定当页面无法访问时的回退页面（比如404页面）。</li>
+		</ul>
+		<em>.appcacha文件书写格式</em>
+		<div style="border: 1px solid #000000;width: 100px;height: 250px;">
+			CACHE MANIFEST<br /><br />
+			CACHE:<br />
+			index.html<br />
+			style.css<br />
+			index.js<br /><br />
+			NETWORK:<br />
+			style.css<br />
+		</div>
+		<p>例子待研究服务器的问题。</p>
+		
+		<!--Web Workers-->
+		<h3>四、Web Workers</h3>
+		<em>1、什么是Web Worker？</em>
+		<p>web worker是运行在后台的JavaScript，独立于其他脚本，不会影响页面的性能。</p>
+		<em>2、方法：</em>
+		<p>postMessage()-它用于向HTML页面传回一段消息；<br />terminate()-终止web worker，并释放浏览器/计算机资源。</p>
+		<em>3、事件：</em>
+		<p>onmessage</p>
+		<em>例子：</em>
+		<div id="numDiv">0</div>
+		<button id="start">start</button>
+		<button id="stop">stop</button>
+	</body>
+</html>
