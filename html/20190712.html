@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>案例：图片库</title>
+		<link rel="stylesheet" href="../css/20190712.css" />
+	</head>
+
+	<body>
+		<a href="../index.html"><button id="bcindex">返回首页</button></a>
+		<p></p>
+		<h1>Snapshots</h1>
+
+		<ul>
+			<li>
+				<a href="../image/20180706/1.jpg" onclick="showPic(this);return false;" title="ZXC1 displayed">张新成(1)</a>
+			</li>
+			<li>
+				<a href="../image/20180706/2.jpg" onclick="showPic(this);return false;" title="ZXC2 displayed">张新成(2)</a>
+			</li>
+		</ul>
+		
+		<ul id="imagegallery">
+			<li>
+				<a href="../image/20180706/3.jpg" title="ZXC3 displayed">张新成(3)</a>
+			</li>
+			<li>
+				<a href="../image/20180706/4.jpg">防弹少年团(1)</a>
+			</li>
+		</ul>
+
+		<img id="placeholder" src="images/ajax-loader.gif" alt="my image gallery" />
+		<p id="description">Choose an image.</p>
+		<script type="text/javascript" src="../js/20190712.js"></script>
+		
+		<dl>
+			<dt>title 1</dt>
+			<dd>Description 1</dd>
+			<dt>Title 2</dt>
+			<dd>Description 2</dd>
+		</dl>
+		
+	</body>
+
+</html>
